@@ -8,6 +8,8 @@
 
 A PHP package implementing array schema validation.
 
+**This package is very experimental and can change very much pre version 1.0!**
+
 This is just a personal project. It will follow semantic versioning and will be stable, but don't expect constant development, especially when it is declared feature complete.
 
 PRs are welcome.
