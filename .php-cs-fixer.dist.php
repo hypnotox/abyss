@@ -3,17 +3,10 @@
 declare(strict_types=1);
 
 $finder = (new PhpCsFixer\Finder())
-    ->in(__DIR__)
-    ->exclude(
-        [
-            'assets',
-            'bin',
-            'node_modules',
-            'public',
-            'templates',
-            'var',
-        ]
-    )
+    ->in([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ])
 ;
 
 return (new PhpCsFixer\Config())
@@ -56,9 +49,5 @@ return (new PhpCsFixer\Config())
         'ternary_to_null_coalescing'               => true,
         'use_arrow_functions'                      => true,
         'void_return'                              => true,
-    ])->setFinder(
-        PhpCsFixer\Finder::create()
-            ->exclude('vendor')
-            ->in(__DIR__)
-    )
+    ])->setFinder($finder)
 ;
