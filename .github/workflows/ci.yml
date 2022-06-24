@@ -112,7 +112,7 @@ jobs:
                 run: composer install --no-progress --prefer-dist --optimize-autoloader
 
             -   name: Run tests
-                run: composer unit-coverage
+                run: composer unit-coverage-clover
 
             -   name: Upload code coverage
                 env:

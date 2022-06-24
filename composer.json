@@ -14,10 +14,7 @@
 		"preferred-install": {
 			"*": "dist"
 		},
-		"sort-packages": true,
-		"allow-plugins": {
-			"composer/package-versions-deprecated": true
-		}
+		"sort-packages": true
 	},
 	"autoload": {
 		"psr-4": {
@@ -33,7 +30,9 @@
 		"php": ">=8.1"
 	},
 	"require-dev": {
+		"fakerphp/faker": "^1.19",
 		"friendsofphp/php-cs-fixer": "^3.4",
+		"phpbench/phpbench": "^1.2",
 		"phpunit/phpunit": "^9.5",
 		"vimeo/psalm": "^4.15"
 	},
@@ -44,12 +43,14 @@
 			"@unit"
 		],
 		"unit": "vendor/bin/phpunit",
-		"unit-coverage": "@unit --coverage-clover coverage.xml",
+		"unit-coverage-clover": "@unit --coverage-clover coverage.xml",
+		"unit-coverage-html": "@unit --coverage-html coverage",
 		"coverage-badge": "vendor/bin/php-coverage-badger coverage/clover.xml coverage/badge.svg",
 		"fix": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
 		"fix-verbose": "@fix -vvv",
 		"lint-ci": "vendor/bin/psalm --no-cache",
 		"lint": "@lint-ci --output-format=phpstorm",
-		"lint-verbose": "@lint --show-info=true"
+		"lint-verbose": "@lint --show-info=true",
+		"bench": "vendor/bin/phpbench run --report=default"
 	}
 }
