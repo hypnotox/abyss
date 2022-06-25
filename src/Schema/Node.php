@@ -12,11 +12,15 @@ use HypnoTox\Abyss\Schema\Enum\ValueType;
  *
  * @psalm-immutable
  */
-class Node implements NodeInterface
+final class Node implements NodeInterface
 {
+    /**
+     * @param list<NodeInterface> $children
+     */
     public function __construct(
         private readonly KeyType $keyType,
         private readonly ValueType $valueType,
+        private readonly array $children = [],
     ) {
     }
 
@@ -28,5 +32,22 @@ class Node implements NodeInterface
     public function getValueType(): ValueType
     {
         return $this->valueType;
+    }
+
+    public function getChildren(): array
+    {
+        return $this->children;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'keyType'                           => $this->keyType,
+            'valueType'                         => $this->valueType,
+            'children'                          => array_map(
+                static fn (NodeInterface $node) => $node->toArray(),
+                $this->children,
+            ),
+        ];
     }
 }

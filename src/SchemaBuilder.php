@@ -6,24 +6,29 @@ namespace HypnoTox\Abyss;
 
 use HypnoTox\Abyss\Schema\NodeInterface;
 
+/**
+ * {@inheritDoc}
+ *
+ * @psalm-immutable
+ */
 final class SchemaBuilder implements SchemaBuilderInterface
 {
-    /**
-     * @param list<NodeInterface> $schema
-     */
     public function __construct(
-        private readonly array $schema,
+        private readonly SchemaInterface $schema = new Schema(),
     ) {
     }
 
-    public static function fromArray(array $schema): self
+    public static function fromArray(array $data): self
     {
         // TODO: implement parsing
-        /** @var list<NodeInterface> $schema */
+        /** @var list<NodeInterface> $nodes */
+        $nodes = $data;
+        $schema = new Schema($nodes);
+
         return new self($schema);
     }
 
-    public function getSchema(): array
+    public function getSchema(): SchemaInterface
     {
         return $this->schema;
     }

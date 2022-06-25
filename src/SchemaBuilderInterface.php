@@ -4,12 +4,24 @@ declare(strict_types=1);
 
 namespace HypnoTox\Abyss;
 
-use HypnoTox\Abyss\Schema\NodeInterface;
-
+/**
+ * Builds schema, parsing it from an array representation and/or using the building methods.
+ *
+ * @psalm-immutable
+ */
 interface SchemaBuilderInterface
 {
+    public function __construct(SchemaInterface $schema = new Schema());
+
     /**
-     * @return list<NodeInterface>
+     * Parses schema from an array representation.
      */
-    public function getSchema(): array;
+    public static function fromArray(array $data): self;
+
+    /**
+     * Returns current schema.
+     */
+    public function getSchema(): SchemaInterface;
+
+    // TODO: define building methods
 }

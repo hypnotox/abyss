@@ -6,6 +6,9 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 abstract class BaseTest extends TestCase
 {
     protected $backupStaticAttributes = [];
