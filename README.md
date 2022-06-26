@@ -19,8 +19,8 @@ PRs are welcome.
 ## Target features
 
 - All classes are immutable
-- Schema builder instances allow to build schemas in code and to parse it from 
-- Schemas are buildable and modifiable in code as well as parseable from an array representation using a builder instance
+- Schema builder allows to build and "modify" schemas in code
+- Parser is able to parse schemas from array representations
 - Validator validates arrays against a give schema and using the defined rules / validators
 
 ### Target constraints
