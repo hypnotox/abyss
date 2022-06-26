@@ -8,11 +8,36 @@
 
 A PHP package implementing array schema validation.
 
+### The package is currently not in any usable state, but is in active development. It will be tagged as soon as base functionality is present and tested.
+
 **This package is very experimental and can change very much pre version 1.0!**
 
 This is just a personal project, but follows semantic versioning and will be stable once reaching its first major release.
 
 PRs are welcome.
+
+## Target features
+
+- All classes are immutable
+- Schema builder instances allow to build schemas in code and to parse it from 
+- Schemas are buildable and modifiable in code as well as parseable from an array representation using a builder instance
+- Validator validates arrays against a give schema and using the defined rules / validators
+
+### Target validators
+
+- Type validator
+  - Scalars
+    - int, string, float, bool
+  - Array (I'm currently unsure if \Traversable should be allowed)
+    - list<T>, map<K, T>
+  - Objects
+    - instanceof T
+- Constraint validator
+  - numeric value equal to (any of) / inside bounds
+  - string equal to (any of)
+  - array size equal to / inside bounds
+- Object shape validator
+- Custom validators
 
 ## Installation
 
