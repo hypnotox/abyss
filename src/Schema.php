@@ -10,6 +10,8 @@ use HypnoTox\Abyss\Schema\NodeInterface;
  * {@inheritDoc}
  *
  * @psalm-immutable
+ *
+ * TODO: decide what the schema should look like, it should be able to define single keys but also simple array shapes (list<T>, map<K, T>) in a single node
  */
 final class Schema implements SchemaInterface
 {

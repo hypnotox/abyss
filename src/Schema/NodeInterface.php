@@ -10,7 +10,6 @@ use HypnoTox\Abyss\Schema\Enum\ValueType;
 /**
  * A single node of a schema.
  *
- * @internal
  * @psalm-immutable
  */
 interface NodeInterface
@@ -18,6 +17,8 @@ interface NodeInterface
     public function getKeyType(): KeyType;
 
     public function getValueType(): ValueType;
+
+    public function isOptional(): bool;
 
     /**
      * @return list<self>

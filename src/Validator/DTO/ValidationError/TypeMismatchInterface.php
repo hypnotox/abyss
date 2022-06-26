@@ -15,6 +15,8 @@ use HypnoTox\Abyss\Validator\DTO\ValidationErrorInterface;
  *
  * @see KeyTypeMismatchInterface
  * @see ValueTypeMismatchInterface
+ *
+ * @psalm-immutable
  */
 interface TypeMismatchInterface extends ValidationErrorInterface
 {

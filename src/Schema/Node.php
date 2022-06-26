@@ -20,6 +20,7 @@ final class Node implements NodeInterface
     public function __construct(
         private readonly KeyType $keyType,
         private readonly ValueType $valueType,
+        private readonly bool $isOptional = false,
         private readonly array $children = [],
     ) {
     }
@@ -34,6 +35,11 @@ final class Node implements NodeInterface
         return $this->valueType;
     }
 
+    public function isOptional(): bool
+    {
+        return $this->isOptional;
+    }
+
     public function getChildren(): array
     {
         return $this->children;
@@ -44,6 +50,7 @@ final class Node implements NodeInterface
         return [
             'keyType'                           => $this->keyType,
             'valueType'                         => $this->valueType,
+            'isOptional'                        => $this->isOptional,
             'children'                          => array_map(
                 static fn (NodeInterface $node) => $node->toArray(),
                 $this->children,

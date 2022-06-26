@@ -14,11 +14,6 @@ interface SchemaBuilderInterface
     public function __construct(SchemaInterface $schema = new Schema());
 
     /**
-     * Parses schema from an array representation.
-     */
-    public static function fromArray(array $data): self;
-
-    /**
      * Returns current schema.
      */
     public function getSchema(): SchemaInterface;

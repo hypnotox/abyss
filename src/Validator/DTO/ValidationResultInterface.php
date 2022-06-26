@@ -11,6 +11,8 @@ use HypnoTox\Abyss\ValidatorInterface;
  * DTO holding validation results.
  *
  * @see ValidatorInterface
+ *
+ * @psalm-immutable
  */
 interface ValidationResultInterface
 {
