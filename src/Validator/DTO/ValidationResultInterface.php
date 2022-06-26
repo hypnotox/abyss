@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace HypnoTox\Abyss\Validator\DTO;
 
-use HypnoTox\Abyss\Validator\DTO\ValidationError\TypeMismatchInterface;
 use HypnoTox\Abyss\ValidatorInterface;
 
 /**
@@ -17,7 +16,7 @@ use HypnoTox\Abyss\ValidatorInterface;
 interface ValidationResultInterface
 {
     /**
-     * @param list<TypeMismatchInterface> $errors list of encountered validation errors
+     * @param list<ValidationErrorInterface> $errors list of encountered validation errors
      */
     public function __construct(bool $isValid, array $errors = []);
 
@@ -27,7 +26,7 @@ interface ValidationResultInterface
     public function isValid(): bool;
 
     /**
-     * @return list<TypeMismatchInterface> list of encountered validation errors
+     * @return list<ValidationErrorInterface> list of encountered validation errors
      */
     public function getErrors(): array;
 }

@@ -16,6 +16,8 @@ use HypnoTox\Abyss\Validator\DTO\ValidationResultInterface;
  */
 interface ValidatorInterface
 {
+    // TODO: implement ability to report on first find or all issues
+
     /**
      * @param SchemaInterface $schema schema to validate against
      */

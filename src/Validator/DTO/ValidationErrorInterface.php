@@ -7,8 +7,6 @@ namespace HypnoTox\Abyss\Validator\DTO;
 /**
  * Parent validation error interface.
  *
- * @see \HypnoTox\Abyss\Validator\DTO\ValidationError\*
- *
  * @psalm-immutable
  */
 interface ValidationErrorInterface

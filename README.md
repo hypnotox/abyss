@@ -23,21 +23,29 @@ PRs are welcome.
 - Schemas are buildable and modifiable in code as well as parseable from an array representation using a builder instance
 - Validator validates arrays against a give schema and using the defined rules / validators
 
-### Target validators
+### Target constraints
 
-- Type validator
+- Type constraint
   - Scalars
-    - int, string, float, bool
-  - Array (I'm currently unsure if \Traversable should be allowed)
-    - list<T>, map<K, T>
+    - [ ] int, string, float, bool
+  - Array \(I'm currently unsure if `\Traversable` should be allowed\)
+    - [ ] list\<T\>
+    - [ ] map\<K, T\>
   - Objects
-    - instanceof T
-- Constraint validator
-  - numeric value equal to (any of) / inside bounds
-  - string equal to (any of)
-  - array size equal to / inside bounds
-- Object shape validator
-- Custom validators
+    - [ ] instanceof T
+- Value constraint
+  - Scalar
+    - Numeric
+      - [ ] equal to / inside bounds
+    - String
+      - [ ] equal to (any of)
+      - [ ] regex
+    - [ ] Enum
+  - Array
+    - [ ] size equal to / inside bounds
+    - [ ] nested array
+- [ ] Object shape constraint
+- [ ] Custom constraints
 
 ## Installation
 
