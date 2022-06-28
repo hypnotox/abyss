@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-namespace HypnoTox\Abyss;
+namespace HypnoTox\Abyss\Schema;
 
-use HypnoTox\Abyss\Schema\NodeInterface;
+use HypnoTox\Abyss\Schema\Node\NodeInterface;
 
 /**
  * {@inheritDoc}
  *
  * @psalm-immutable
- *
- * TODO: decide what the schema should look like, it should be able to define single keys but also simple array shapes (list<T>, map<K, T>) in a single node
  */
 final class Schema implements SchemaInterface
 {
@@ -30,8 +28,17 @@ final class Schema implements SchemaInterface
 
     public function toArray(): array
     {
+        /**
+         * @psalm-var pure-callable $callback
+         *
+         * @var callable $callback
+         * @noinspection PhpUndefinedClassInspection
+         * @noinspection PhpDocSignatureInspection
+         */
+        $callback = static fn (NodeInterface $node): array => $node->toArray();
+
         return array_map(
-            static fn (NodeInterface $node) => $node->toArray(),
+            $callback,
             $this->nodes,
         );
     }
