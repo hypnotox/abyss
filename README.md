@@ -6,9 +6,9 @@
 [![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/hypnotox/abyss)](https://packagist.org/packages/hypnotox/abyss)
 [![GitHub](https://img.shields.io/github/license/hypnotox/abyss)](/LICENSE.md)
 
-A PHP package implementing array schema validation.
+A PHP package implementing array to object schema validation and mapping. *\(The idea of this package has changed a bit and might change again in the future\)*
 
-### The package is currently not in any usable state, but is in active development. It will be tagged as soon as base functionality is present and tested.
+### The package is currently not in any usable / stable state, but is in active development towards a target. It will be tagged as soon as base functionality is present and tested.
 
 **This package is very experimental and can change very much pre version 1.0!**
 
@@ -16,14 +16,7 @@ This is just a personal project, but follows semantic versioning and will be sta
 
 PRs are welcome.
 
-## Target features
-
-- All classes are immutable
-- Schema builder allows to build and "modify" schemas in code
-- Parser is able to parse schemas from array representations
-- Validator validates arrays against a give schema and using the defined rules / validators
-
-### Target constraints
+## Target constraints
 
 - Type constraint
   - Scalars
@@ -38,7 +31,7 @@ PRs are welcome.
     - Numeric
       - [ ] equal to / inside bounds
     - String
-      - [ ] equal to (any of)
+      - [ ] equal to
       - [ ] regex
     - [ ] Enum
   - Array
