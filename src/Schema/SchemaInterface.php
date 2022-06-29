@@ -13,6 +13,11 @@ use HypnoTox\Abyss\Schema\Node\NodeInterface;
 interface SchemaInterface extends ToArrayInterface
 {
     /**
+     * @return class-string
+     */
+    public function getClass(): string;
+
+    /**
      * @return list<NodeInterface>
      */
     public function getNodes(): array;

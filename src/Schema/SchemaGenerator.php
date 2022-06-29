@@ -11,8 +11,6 @@ use HypnoTox\Abyss\Schema\Node\Node;
 
 /**
  * {@inheritDoc}
- *
- * @psalm-immutable
  */
 final class SchemaGenerator implements SchemaGeneratorInterface
 {
@@ -21,7 +19,7 @@ final class SchemaGenerator implements SchemaGeneratorInterface
      *
      * @throws \ReflectionException
      */
-    public static function generate(string $class): Schema
+    public function generate(string $class): Schema
     {
         $nodes = [];
         $reflectionClass = new \ReflectionClass($class);
@@ -52,6 +50,6 @@ final class SchemaGenerator implements SchemaGeneratorInterface
             );
         }
 
-        return new Schema($nodes);
+        return new Schema($class, $nodes);
     }
 }

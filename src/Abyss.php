@@ -4,20 +4,17 @@ declare(strict_types=1);
 
 namespace HypnoTox\Abyss;
 
-use HypnoTox\Abyss\Constraint\Constrainer;
 use HypnoTox\Abyss\Constraint\Exception\ConstraintException;
 use HypnoTox\Abyss\Hydration\Hydrator;
 use HypnoTox\Abyss\Schema\SchemaGenerator;
 
 /**
- * {@inheritDoc}
- *
  * @psalm-immutable
  */
-final class Abyss implements AbyssInterface
+final class Abyss
 {
     /**
-     * {@inheritDoc}
+     * @param class-string|string $class
      *
      * @throws ConstraintException
      * @throws \ReflectionException
@@ -28,11 +25,12 @@ final class Abyss implements AbyssInterface
             throw new \RuntimeException('Registry not yet implemented');
         }
 
-        $schema = SchemaGenerator::generate($class);
+        $schemaGenerator = new SchemaGenerator();
+        $schema = $schemaGenerator->generate($class);
 
-        $constrainer = new Constrainer($schema, $data);
-        $constrainer->constrain();
-
-        return Hydrator::hydrate($class, $data);
+        return (new Hydrator(
+            $schema,
+            $data,
+        ))->hydrate();
     }
 }

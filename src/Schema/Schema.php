@@ -14,11 +14,18 @@ use HypnoTox\Abyss\Schema\Node\NodeInterface;
 final class Schema implements SchemaInterface
 {
     /**
+     * @param class-string        $class
      * @param list<NodeInterface> $nodes
      */
     public function __construct(
+        private readonly string $class,
         private readonly array $nodes = [],
     ) {
+    }
+
+    public function getClass(): string
+    {
+        return $this->class;
     }
 
     public function getNodes(): array

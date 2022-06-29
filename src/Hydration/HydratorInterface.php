@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace HypnoTox\Abyss\Hydration;
 
+/**
+ * @internal
+ */
 interface HydratorInterface
 {
-    /**
-     * @param class-string $class
-     */
-    public static function hydrate(string $class, array $data): object;
+    public function hydrate(): object;
 }
