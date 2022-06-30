@@ -1,6 +1,6 @@
 # hypnotox/abyss
 
-![CI Status](https://github.com/hypnotox/abyss/actions/workflows/ci.yml/badge.svg)
+[![CI Status](https://github.com/hypnotox/abyss/actions/workflows/ci.yml/badge.svg)](https://github.com/hypnotox/abyss)
 [![Code Coverage](https://codecov.io/gh/hypnotox/abyss/branch/main/graph/badge.svg)](https://codecov.io/gh/hypnotox/abyss)
 [![Packagist Version](https://img.shields.io/packagist/v/hypnotox/abyss)](https://packagist.org/packages/hypnotox/abyss)
 [![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/hypnotox/abyss)](https://packagist.org/packages/hypnotox/abyss)
