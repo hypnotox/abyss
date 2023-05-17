@@ -20,40 +20,10 @@ final class Hydrator implements HydratorInterface
     }
 
     /**
-     * @param list<NodeInterface> $nodes
-     *
-     * @throws ConstraintException
-     */
-    private function recursiveConstrain(array $nodes): void
-    {
-        $children = [];
-
-        foreach ($nodes as $node) {
-            /** @psalm-var mixed $value */
-            $value = $node->getValueFromData($this->data);
-
-            foreach ($node->getConstraints() as $constraint) {
-                $constraint->constrain($value, $node);
-            }
-
-            $children[] = $node->getChildren();
-        }
-
-        $children = array_merge(...$children);
-
-        if (\count($children) > 0) {
-            $this->recursiveConstrain($children);
-        }
-    }
-
-    /**
-     * @throws ConstraintException
      * @throws \ReflectionException
      */
     public function hydrate(): object
     {
-        $this->recursiveConstrain($this->schema->getNodes());
-
         $object = (new \ReflectionClass($this->schema->getClass()))->newInstanceWithoutConstructor();
         $reflectionObject = new \ReflectionObject($object);
         // TODO: implement more elaborate assignment process according to expected type and whatnot

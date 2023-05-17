@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HypnoTox\Abyss;
 
+use HypnoTox\Abyss\Constraint\Constrainer;
 use HypnoTox\Abyss\Constraint\Exception\ConstraintException;
 use HypnoTox\Abyss\Hydration\Hydrator;
 use HypnoTox\Abyss\Schema\SchemaGenerator;
@@ -27,6 +28,7 @@ final class Abyss
 
         $schemaGenerator = new SchemaGenerator();
         $schema = $schemaGenerator->generate($class);
+        (new Constrainer($schema))->constrain($data);
 
         return (new Hydrator(
             $schema,
